@@ -1,15 +1,63 @@
 # open_as_default
 
-A new flutter plugin project.
+A flutter plugin that allows opening a file to be opened with from the flutter app.
 
-## Getting Started
+currently only works with android, soon support ios.
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+<img src="./demo_android.gif" alt="drawing" width="300"/>
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+# Usage
+
+archivo yaml
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  open_as_default: ^<Vertion> #add line
+```
+archivo dart
+```dart
+//import plugin
+import 'package:open_as_default/open_as_default.dart';  
+
+...
+
+@override
+  void initState() {
+    super.initState();
+    
+    OpenAsDefault.getFileIntent.then((value) {
+      print(value);
+      // code 
+    });
+  }
+```
+
+## Android
+
+android/app/src/main/manifest.xml
+```xml
+<application
+..
+>
+    <activity
+    ...
+    >           
+        <!-- addd line -->
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <category android:name="android.intent.category.APP_BROWSER" />
+
+            <data
+                android:mimeType="application/pdf" 
+                android:scheme="content" />
+        </intent-filter>
+
+    </activity> 
+</application>
+```
+
 
