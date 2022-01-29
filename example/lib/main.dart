@@ -1,8 +1,5 @@
 import 'dart:io';
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
-import 'package:native_pdf_renderer/native_pdf_renderer.dart';
 import 'package:open_as_default/open_as_default.dart';
 
 void main() => runApp(MyApp());
@@ -42,69 +39,32 @@ class PaginaUno extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pagina Uno'),
+        title: const Text('Pagina Uno'),
       ),
-      body: Center(
-        child: Container(
-          child: Text('Pagina Uno'),
-        ),
+      body: const Center(
+        child: Text('Pagina Uno'),
       ),
     );
   }
 }
 
-class PaginaDos extends StatefulWidget {
+class PaginaDos extends StatelessWidget {
   final String path;
   const PaginaDos({Key? key, required this.path}) : super(key: key);
-
-  @override
-  State<PaginaDos> createState() => _PaginaDosState();
-}
-
-class _PaginaDosState extends State<PaginaDos> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    loaderPortada();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pagina Dos'),
+        title: const Text('Pagina Dos'),
         backgroundColor: Colors.brown,
       ),
       body: Column(
         children: [
           const Text('Pagina Dos'),
-          (lista == null)
-              ? Container()
-              : Container(
-                  padding: const EdgeInsets.all(20),
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: Image.memory(
-                        lista!,
-                        fit: BoxFit.fill,
-                      )),
-                )
+          Text(path),
         ],
       ),
     );
-  }
-
-  Uint8List? lista;
-
-  loaderPortada() async {
-    final document = await PdfDocument.openFile(widget.path);
-    final page = await document.getPage(1);
-    final image = await page.render(width: page.width, height: page.height);
-    await page.close();
-
-    setState(() {
-      lista = image!.bytes;
-    });
   }
 }

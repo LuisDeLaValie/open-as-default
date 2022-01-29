@@ -4,19 +4,19 @@ A flutter plugin that allows opening a file to be opened with from the flutter a
 
 currently only works with android, soon support ios.
 
-<img src="./demo_android.gif" alt="drawing" width="300"/>
+<img src="https://github.com/LuisDeLaValie/open_as_default/raw/master/demo_android.gif" alt="drawing" width="300"/>
 
 
 # Usage
 
-archivo yaml
+yaml file
 ```yaml
 dependencies:
   flutter:
     sdk: flutter
   open_as_default: ^<Vertion> #add line
 ```
-archivo dart
+dart file
 ```dart
 //import plugin
 import 'package:open_as_default/open_as_default.dart';  
@@ -34,7 +34,7 @@ import 'package:open_as_default/open_as_default.dart';
   }
 ```
 
-## Android
+#### Android
 
 android/app/src/main/manifest.xml
 ```xml
