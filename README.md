@@ -1,8 +1,8 @@
 # open_as_default
 
-A flutter plugin that allows opening a file to be opened with from the flutter app.
+A flutter plugin that allows setting up your flutter app to open files as default.
 
-currently only works with android, soon support ios.
+Currently working only on Android, iOS Support coming soon.
 
 <img src="https://github.com/LuisDeLaValie/open_as_default/raw/master/demo_android.gif" alt="drawing" width="300"/>
 
@@ -14,7 +14,7 @@ yaml file
 dependencies:
   flutter:
     sdk: flutter
-  open_as_default: ^<Vertion> #add line
+  open_as_default: ^<Version> #add line
 ```
 dart file
 ```dart
