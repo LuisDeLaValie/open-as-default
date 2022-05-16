@@ -1,7 +1,9 @@
 name: open_as_default
 description: A flutter plugin that allows setting up your flutter app to open files as default.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/LuisDeLaValie
+homepage: https://github.com/LuisDeLaValie
+repository: https://github.com/LuisDeLaValie
 
 environment:
   sdk: ">=2.15.1 <3.0.0"
